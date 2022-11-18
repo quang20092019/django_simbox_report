@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leeon</title>
+
+    <link href="{% static 'Login/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Login/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+
+    <link href="{% static 'Login/css/plugins/dataTables/datatables.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'Login/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'Login/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <img alt="image" class="rounded-circle" src="https://w.ladicdn.com/s450x400/5ecb2b15d78e8c133592ba65/leeon_logo--20210316085911.png"/>
+                    </div>
+
+                </li>
+                <li>
+                    <a href="{% url 'index' %}"><i class="fa fa-phone"></i></i> <span class="nav-label">Spam call</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'smartsip' %}"><i class="fa fa-dollar"></i> <span class="nav-label">Smartsip</span></a>
+                </li>
+                <li class="active">
+                    <a><i class="fa fa-inbox"></i> <span class="nav-label">Nội mạng</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{% url 'baocaonoimang_huong' %}">Theo Hướng</a></li>
+                        <li><a href="{% url 'baocaonoimang_customer' %}">Theo Khách hàng</a></li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a><i class="fa fa-th-large"></i> <span class="nav-label">Ngoại mạng</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{% url 'baocaongoaimang_huong' %}">Theo Hướng</a></li>
+                        <li><a href="{% url 'baocaongoaimang_customer' %}">Theo Khách hàng</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> <span class="nav-label">Đăng xuất</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <!-- <div class="navbar-header">
+            <h3><a class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i></a></h3>
+        </div> -->
+                </li>
+            </ul>
+
+        </nav>
+        </div>
+            
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="ibox ">
+                    
+                    <div class="ibox-content">
+                        <div class="middle-box text-center animated fadeInDown">
+                            <h1>Sorry</h1>
+                            <h3 class="font-bold">Bạn không có quyền {{reason}}</h3>
+                    
+                            <!-- <div class="error-desc">
+                                Sorry, but the page you are looking for has note been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in our app.
+                            </div> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="footer">
+            <!-- <div class="float-right">
+                10GB of <strong>250GB</strong> Free.
+            </div> -->
+            <div>
+                <strong>Copyright</strong> SNA &copy; 2022
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="{% static 'Login/js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'Login/js/popper.min.js' %}"></script>
+    <script src="{% static 'Login/js/bootstrap.js' %}"></script>
+    <script src="{% static 'Login/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'Login/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <script src="{% static 'Login/js/plugins/dataTables/datatables.min.js' %}"></script>
+    <script src="{% static 'Login/js/plugins/dataTables/dataTables.bootstrap4.min.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'Login/js/inspinia.js' %}"></script>
+    <script src="{% static 'Login/js/plugins/pace/pace.min.js' %}"></script>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 50,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
